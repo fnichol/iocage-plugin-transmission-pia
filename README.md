@@ -1,10 +1,13 @@
-# iocage-plugin-transmission
+# iocage-plugin-transmission-pia
 
 An [iocage][] plugin for [Transmission][], a cross-platform BitTorrent client
-that is open source, easy, lean, native, and powerful.
+that is open source, easy, lean, native, and powerful running through a [Private
+Internet Access][] [WireGuard][] VPN connection.
 
 [iocage]: https://github.com/iocage/iocage
+[private internet access]: https://www.privateinternetaccess.com/
 [transmission]: https://transmissionbt.com/
+[wireguard]: https://www.wireguard.com/
 
 |         |                                      |
 | ------: | ------------------------------------ |
@@ -33,16 +36,19 @@ that is open source, easy, lean, native, and powerful.
 ## Installation
 
 This plugin can be installed via the [fnichol/iocage-plugin-index][index] plugin
-collection which is not installed on TrueNAS by default. For example, to install
-the plugin with a name of `tbt` and a dedicated IP address:
+collection which is not installed on TrueNAS or FreeBSD by default. For example,
+to install the plugin with a name of `tbt` and a dedicated IP address:
 
-```console
-$ jail=tbt
-$ ip_addr=10.200.0.110
+```sh
+# Variables
+jail=tbt
+ip_addr=10.200.0.110
+```
 
-$ sudo iocage fetch \
+```sh
+sudo iocage fetch \
   -g https://github.com/fnichol/iocage-plugin-index \
-  -P transmission \
+  -P transmission-pia \
   --name $jail \
   ip4_addr="vnet0|$ip_addr"
 ```
@@ -107,11 +113,11 @@ licensed as above, without any additional terms or conditions.
 
 [badge-license]: https://img.shields.io/badge/License-MPL%202.0%20-blue.svg
 [badge-ci-overall]:
-  https://api.cirrus-ci.com/github/fnichol/iocage-plugin-transmission.svg
-[ci]: https://cirrus-ci.com/github/fnichol/iocage-plugin-transmission
+  https://api.cirrus-ci.com/github/fnichol/iocage-plugin-transmission-pia.svg
+[ci]: https://cirrus-ci.com/github/fnichol/iocage-plugin-transmission-pia
 [code-of-conduct]:
-  https://github.com/fnichol/iocage-plugin-transmission/blob/main/CODE_OF_CONDUCT.md
+  https://github.com/fnichol/iocage-plugin-transmission-pia/blob/main/CODE_OF_CONDUCT.md
 [fnichol]: https://github.com/fnichol
-[issues]: https://github.com/fnichol/iocage-plugin-transmission/issues
+[issues]: https://github.com/fnichol/iocage-plugin-transmission-pia/issues
 [license]:
-  https://github.com/fnichol/iocage-plugin-transmission/blob/main/LICENSE.txt
+  https://github.com/fnichol/iocage-plugin-transmission-pia/blob/main/LICENSE.txt
